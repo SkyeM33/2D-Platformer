@@ -11,11 +11,11 @@ Built with Godot 4.1
 
 ## References
 
-Sprite sheet for player provided by project module
+Sprite sheet for player provided by project module.
 
 ## Future Development
 
-To be turned into a more complete 2D platformer.
+To be turned into a more complete 2D platformer. More levels to be added/completed. Enemies to be added.
 
 ## Created by
 
