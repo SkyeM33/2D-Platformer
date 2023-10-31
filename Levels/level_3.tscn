@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://d3xyqieu8q8q8"]
+[gd_scene load_steps=25 format=3 uid="uid://d3xyqieu8q8q8"]
 
 [ext_resource type="Texture2D" uid="uid://bdp422a2vuw2h" path="res://Assets/Level 3.png" id="1_rahe8"]
 [ext_resource type="Texture2D" uid="uid://61jskxmah413" path="res://Assets/Platformer sprite sheet fixed.png" id="2_mutp3"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://Player/Player.gd" id="3_d6pfq"]
 [ext_resource type="Texture2D" uid="uid://dynokr4l41ncb" path="res://Assets/Portal.png" id="4_3pvib"]
 [ext_resource type="Texture2D" uid="uid://c84op8a5loqpy" path="res://Assets/player.png" id="4_otuv5"]
+[ext_resource type="PackedScene" uid="uid://3ekipwe3voqp" path="res://Enemies/boar_3.tscn" id="7_1ykrn"]
+[ext_resource type="PackedScene" uid="uid://chg52dofx8plp" path="res://Enemies/bee.tscn" id="8_pqqva"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yjr3q"]
 texture = ExtResource("2_mutp3")
@@ -210,5 +212,11 @@ animation = &"Walk"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(2, 4)
 shape = SubResource("RectangleShape2D_e532q")
+
+[node name="Boar 3" parent="." instance=ExtResource("7_1ykrn")]
+position = Vector2(827, 583)
+
+[node name="Bee" parent="." instance=ExtResource("8_pqqva")]
+position = Vector2(527, 456)
 
 [connection signal="body_entered" from="To_4" to="To_4" method="_on_body_entered"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://ds0jdbnrh6dj1"]
+[gd_scene load_steps=20 format=3 uid="uid://ds0jdbnrh6dj1"]
 
 [ext_resource type="Texture2D" uid="uid://dynokr4l41ncb" path="res://Assets/Portal.png" id="1_ta73c"]
 [ext_resource type="Script" path="res://Player/Player.gd" id="2_hxmhj"]
 [ext_resource type="Texture2D" uid="uid://c84op8a5loqpy" path="res://Assets/player.png" id="3_a8tl5"]
 [ext_resource type="Texture2D" uid="uid://61jskxmah413" path="res://Assets/Platformer sprite sheet fixed.png" id="4_rhker"]
+[ext_resource type="PackedScene" uid="uid://chg52dofx8plp" path="res://Enemies/bee.tscn" id="5_vpwxy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_olvke"]
 atlas = ExtResource("3_a8tl5")
@@ -175,3 +176,21 @@ shape = SubResource("RectangleShape2D_t1tw2")
 tile_set = SubResource("TileSet_c1mrp")
 format = 2
 layer_0/tile_data = PackedInt32Array(458752, 131072, 2, 458753, 131072, 2, 458754, 131072, 2, 393220, 131072, 2, 393221, 131072, 2, 327687, 131072, 2, 327689, 131072, 2, 524297, 131072, 2, 458763, 131072, 2, 524300, 131072, 2, 524301, 131072, 2, 458766, 131072, 2, 524303, 131072, 2)
+
+[node name="Bee" parent="." instance=ExtResource("5_vpwxy")]
+position = Vector2(1035, 492)
+
+[node name="Bee2" parent="." instance=ExtResource("5_vpwxy")]
+position = Vector2(681, 279)
+
+[node name="Bee3" parent="." instance=ExtResource("5_vpwxy")]
+position = Vector2(272, 378)
+
+[node name="Bee4" parent="." instance=ExtResource("5_vpwxy")]
+position = Vector2(132, 464)
+
+[node name="Bee5" parent="." instance=ExtResource("5_vpwxy")]
+position = Vector2(473, 297)
+
+[node name="Bee6" parent="." instance=ExtResource("5_vpwxy")]
+position = Vector2(873, 412)

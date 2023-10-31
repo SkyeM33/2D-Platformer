@@ -39,5 +39,11 @@ func _physics_process(delta):
 	if position.y >= 650:
 		position.y = -55
 		position.x = 1
+		
 
 	move_and_slide()
+	
+func die():
+	position.y = -55
+	position.x = 1
+		

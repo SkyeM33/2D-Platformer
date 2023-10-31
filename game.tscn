@@ -1,9 +1,12 @@
-[gd_scene load_steps=18 format=3 uid="uid://bk831h4vcrj7u"]
+[gd_scene load_steps=22 format=3 uid="uid://bk831h4vcrj7u"]
 
 [ext_resource type="Script" path="res://Levels/Exit.gd" id="1_1olyh"]
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_n4m8p"]
 [ext_resource type="Texture2D" uid="uid://c84op8a5loqpy" path="res://Assets/player.png" id="2_rp0dp"]
 [ext_resource type="Texture2D" uid="uid://dynokr4l41ncb" path="res://Assets/Portal.png" id="3_00h8g"]
+[ext_resource type="PackedScene" uid="uid://irqn3a5ujapj" path="res://Enemies/boar.tscn" id="5_5gvnd"]
+[ext_resource type="PackedScene" uid="uid://chg52dofx8plp" path="res://Enemies/bee.tscn" id="6_xry56"]
+[ext_resource type="PackedScene" uid="uid://c8i0oxf0vk8tg" path="res://Enemies/boar_2.tscn" id="7_ifm8i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aluuq"]
 size = Vector2(1152, 50)
@@ -104,6 +107,11 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xbwe4"]
 size = Vector2(22, 50)
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_2weyh"]
+vertices = PackedVector2Array(-454, -316, -201, -284, -21, -27, -448, -24)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-454, -316, -201, -284, -21, -27, -448, -24)])
+
 [node name="Game" type="Node2D"]
 position = Vector2(577, 671)
 
@@ -138,5 +146,40 @@ animation = &"Walk"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(2, 4)
 shape = SubResource("RectangleShape2D_xbwe4")
+
+[node name="Boar" parent="." instance=ExtResource("5_5gvnd")]
+position = Vector2(86, -42)
+
+[node name="Bee" parent="." instance=ExtResource("6_xry56")]
+position = Vector2(-342, -237)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_2weyh")
+
+[node name="Boar2" parent="." instance=ExtResource("7_ifm8i")]
+position = Vector2(130, -44)
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = -64.0
+offset_top = -260.0
+offset_right = 158.0
+offset_bottom = -104.0
+theme_override_colors/background_color = Color(0.290196, 0.290196, 0.290196, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Welcome to the test space
+
+A = left
+D = right
+SPACE = jump"
+
+[node name="TextEdit2" type="TextEdit" parent="."]
+offset_left = 304.0
+offset_top = -161.0
+offset_right = 391.0
+offset_bottom = -96.0
+theme_override_colors/background_color = Color(0.290196, 0.290196, 0.290196, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Go here
+<---"
 
 [connection signal="body_entered" from="To_2" to="To_2" method="_on_body_entered"]

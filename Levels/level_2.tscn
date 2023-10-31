@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bpsm68c8y4hm4"]
+[gd_scene load_steps=28 format=3 uid="uid://bpsm68c8y4hm4"]
 
 [ext_resource type="Texture2D" uid="uid://byf05812xlkbd" path="res://Assets/Level 2.png" id="1_i3g7d"]
 [ext_resource type="Texture2D" uid="uid://61jskxmah413" path="res://Assets/Platformer sprite sheet fixed.png" id="2_85rf7"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://c84op8a5loqpy" path="res://Assets/player.png" id="4_3ddqn"]
 [ext_resource type="Texture2D" uid="uid://dynokr4l41ncb" path="res://Assets/Portal.png" id="5_82rlv"]
 [ext_resource type="Script" path="res://Levels/Exit.gd" id="5_sntru"]
+[ext_resource type="PackedScene" uid="uid://3ekipwe3voqp" path="res://Enemies/boar_3.tscn" id="8_63yyj"]
+[ext_resource type="PackedScene" uid="uid://chg52dofx8plp" path="res://Enemies/bee.tscn" id="8_eai8l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x27d8"]
 texture = ExtResource("2_85rf7")
@@ -169,6 +171,17 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eykre"]
 size = Vector2(22, 50)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q26fe"]
+size = Vector2(11, 657)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_44uv7"]
+size = Vector2(22.5, 660)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_lnh5b"]
+vertices = PackedVector2Array(976, 449, 898, 446, 526, 374, 524, 299, 295, 376, 298, 449, 223, 444, 12, -4, 1156, -9, 1154, 522, 1048, 513, 901, 524, 825, 524, 748, 447, 524, 602, 387, 611, 380, 451, 523, 519, 670, 446, 671, 520, 448, 376, 1049, 597, 981, 600, 9, 437, 751, 524, 371, 373, 448, 302)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 10, 0), PackedInt32Array(1, 11, 12, 13), PackedInt32Array(14, 15, 16, 17), PackedInt32Array(2, 18, 19, 17, 16, 20), PackedInt32Array(21, 22, 0, 10), PackedInt32Array(7, 8, 0, 3), PackedInt32Array(6, 23, 7), PackedInt32Array(12, 24, 13), PackedInt32Array(2, 1, 13, 18), PackedInt32Array(20, 16, 25, 26), PackedInt32Array(7, 3, 26), PackedInt32Array(4, 7, 26, 25)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(12, -4, 9, 437, 223, 444, 298, 449, 295, 376, 371, 373, 380, 451, 387, 611, 524, 602, 523, 519, 671, 520, 670, 446, 748, 447, 751, 524, 825, 524, 901, 524, 898, 446, 976, 449, 981, 600, 1049, 597, 1048, 513, 1154, 522, 1156, -9), PackedVector2Array(448, 302, 524, 299, 526, 374, 448, 376)])
+
 [node name="Level 2" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
@@ -187,7 +200,7 @@ format = 2
 layer_0/tile_data = PackedInt32Array(327680, 65536, 1, 262148, 65536, 1, 393226, 65536, 1, 327692, 65536, 1, 393224, 131072, 1, 196614, 131072, 1, 327689, 131072, 1, 393231, 131072, 1, 327682, 131072, 1)
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(1, -55)
+position = Vector2(18, -38)
 script = ExtResource("3_kck14")
 metadata/_edit_group_ = true
 
@@ -209,5 +222,26 @@ metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="To_3"]
 polygon = PackedVector2Array(-39, -41, 38, -48, 45, 39, -36, 45)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-4.5, 318.5)
+shape = SubResource("RectangleShape2D_q26fe")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1168.75, 319)
+shape = SubResource("RectangleShape2D_44uv7")
+
+[node name="Enemy Container" type="Node2D" parent="."]
+
+[node name="Boar 3" parent="Enemy Container" instance=ExtResource("8_63yyj")]
+position = Vector2(654, 508)
+
+[node name="Bee" parent="Enemy Container" instance=ExtResource("8_eai8l")]
+position = Vector2(684, 207)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_lnh5b")
 
 [connection signal="body_entered" from="To_3" to="To_3" method="_on_body_entered"]
