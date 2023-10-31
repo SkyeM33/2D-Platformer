@@ -6,6 +6,7 @@ var player = null
 @export var looking_speed = 100
 var nav_ready = false
 var initial_position = Vector2.ZERO
+@onready var SM = $StateMachine
 
 var mode = ""
 
@@ -25,7 +26,7 @@ func nav_setup():
 	nav_ready = true
 	
 func _physics_process(_delta):
-	player = get_node_or_null("/root/Game/Player_Container/Player")
+	player = get_node_or_null("/root/Game/Player")
 	var s = looking_speed
 	var points = initial_position
 	if player != null and nav_ready:
@@ -49,13 +50,19 @@ func _physics_process(_delta):
 func _on_attack_body_entered(body):
 	if body.name == "Player":
 		body.die()
-		queue_free()
+		$AnimatedSprite2D.play("Attacking")
+		$AnimatedSprite2D.play("Idle")
 
 
 func _on_above_and_below_body_entered(body):
 	if body.name == "Player":
-		body.die()
-		queue_free()
+		$AnimatedSprite2D.animation = "Dying"
+		#$AnimatedSprite2D.velocity = Vector2.ZERO
+		$Attack.collision_layer = 0
+		$Attack.collision_mask = 0
+		SM.set_state("Die")
+		
+
 		
 func set_animation(anim):
 	if $AnimatedSprite2D.animation == anim: return
@@ -67,3 +74,8 @@ func should_attack():
 	#	return true
 	#return false
 	pass
+
+
+func _on_animated_sprite_2d_animation_finished():
+	if SM.state_name == "Die":
+		queue_free()
