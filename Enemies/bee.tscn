@@ -99,7 +99,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"Dying",
-"speed": 5.0
+"speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -150,8 +150,10 @@ script = ExtResource("1_ouc3u")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xw2kd")
-animation = &"Moving"
+animation = &"Dying"
 autoplay = "Moving"
+frame = 2
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 0.5)
