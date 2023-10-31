@@ -13,6 +13,8 @@ Built with Godot 4.1
 
 Sprite sheet for player provided by project module.
 
+Enemy sprite sheets from Legacy Fantasy game assets by Anokolisa: https://anokolisa.itch.io/sidescroller-pixelart-sprites-asset-pack-forest-16x16
+
 ## Future Development
 
 To be turned into a more complete 2D platformer. More levels to be added/completed. Enemies to be added.
