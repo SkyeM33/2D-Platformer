@@ -108,9 +108,9 @@ animations = [{
 size = Vector2(22, 50)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_2weyh"]
-vertices = PackedVector2Array(-454, -316, -201, -284, -21, -27, -448, -24)
+vertices = PackedVector2Array(-454, -316, -201, -284, -192, -57, -446, -59)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-454, -316, -201, -284, -21, -27, -448, -24)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-454, -316, -201, -284, -192, -57, -446, -59)])
 
 [node name="Game" type="Node2D"]
 position = Vector2(577, 671)
@@ -135,7 +135,7 @@ position = Vector2(-1, 2)
 polygon = PackedVector2Array(41, -46.3, 41, -44.8, 49, -36.8, 49, -34.7, 50, -33.4, 50, 37, 41.9, 46, 39.6, 46, 33.6, 50, -34.5, 50, -43, 44, -43, 41.6, -49, 32.6, -49, 28, -50, 22.1, -50, -14.2, -47.6, -25, -46.4, -25, -42.4, -35, -40.9, -35, -31.9, -46, -29.6, -46, -23.6, -50, -18.2, -50, 32.7, -50)
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(1, -55)
+position = Vector2(-245, -53)
 script = ExtResource("1_n4m8p")
 metadata/_edit_group_ = true
 
@@ -154,6 +154,7 @@ position = Vector2(86, -42)
 position = Vector2(-342, -237)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+position = Vector2(-4, 0)
 navigation_polygon = SubResource("NavigationPolygon_2weyh")
 
 [node name="Boar2" parent="." instance=ExtResource("7_ifm8i")]

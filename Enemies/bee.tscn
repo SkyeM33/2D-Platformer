@@ -150,10 +150,8 @@ script = ExtResource("1_ouc3u")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xw2kd")
-animation = &"Dying"
+animation = &"Moving"
 autoplay = "Moving"
-frame = 2
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 0.5)
