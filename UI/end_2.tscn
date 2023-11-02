@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0rwyuvr15uvk"]
+
+[ext_resource type="Script" path="res://End2.gd" id="1_uijv2"]
+
+[node name="End2" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uijv2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1188.0
+offset_bottom = 688.0
+color = Color(0.8, 0.686275, 0.352941, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 252.0
+offset_top = 98.0
+offset_right = 909.0
+offset_bottom = 164.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 45
+text = "Ok, this is the actual end now."
+
+[node name="Restart" type="Button" parent="."]
+layout_mode = 0
+offset_left = 455.0
+offset_top = 278.0
+offset_right = 655.0
+offset_bottom = 328.0
+theme_override_font_sizes/font_size = 30
+text = "Restart"
+
+[node name="End" type="Button" parent="."]
+layout_mode = 0
+offset_left = 454.0
+offset_top = 342.0
+offset_right = 654.0
+offset_bottom = 392.0
+theme_override_font_sizes/font_size = 30
+text = "End"
+
+[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="End" to="." method="_on_end_pressed"]

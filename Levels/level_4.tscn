@@ -1,5 +1,6 @@
-[gd_scene load_steps=20 format=3 uid="uid://ds0jdbnrh6dj1"]
+[gd_scene load_steps=21 format=3 uid="uid://ds0jdbnrh6dj1"]
 
+[ext_resource type="Script" path="res://Levels/Exit.gd" id="1_moo27"]
 [ext_resource type="Texture2D" uid="uid://dynokr4l41ncb" path="res://Assets/Portal.png" id="1_ta73c"]
 [ext_resource type="Script" path="res://Player/Player.gd" id="2_hxmhj"]
 [ext_resource type="Texture2D" uid="uid://c84op8a5loqpy" path="res://Assets/player.png" id="3_a8tl5"]
@@ -152,6 +153,7 @@ sources/0 = SubResource("TileSetAtlasSource_l8rte")
 
 [node name="To_5" type="Area2D" parent="."]
 position = Vector2(1167, 503)
+script = ExtResource("1_moo27")
 
 [node name="Sprite2D" type="Sprite2D" parent="To_5"]
 texture = ExtResource("1_ta73c")
@@ -181,7 +183,7 @@ layer_0/tile_data = PackedInt32Array(458752, 131072, 2, 458753, 131072, 2, 45875
 position = Vector2(1035, 492)
 
 [node name="Bee2" parent="." instance=ExtResource("5_vpwxy")]
-position = Vector2(681, 279)
+position = Vector2(681, 322)
 
 [node name="Bee3" parent="." instance=ExtResource("5_vpwxy")]
 position = Vector2(272, 378)
@@ -194,3 +196,5 @@ position = Vector2(473, 297)
 
 [node name="Bee6" parent="." instance=ExtResource("5_vpwxy")]
 position = Vector2(873, 412)
+
+[connection signal="body_entered" from="To_5" to="To_5" method="_on_body_entered"]

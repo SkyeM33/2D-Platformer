@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://d3xyqieu8q8q8"]
+[gd_scene load_steps=26 format=3 uid="uid://d3xyqieu8q8q8"]
 
 [ext_resource type="Texture2D" uid="uid://bdp422a2vuw2h" path="res://Assets/Level 3.png" id="1_rahe8"]
 [ext_resource type="Texture2D" uid="uid://61jskxmah413" path="res://Assets/Platformer sprite sheet fixed.png" id="2_mutp3"]
@@ -171,6 +171,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e532q"]
 size = Vector2(22, 50)
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_fsbwc"]
+
 [node name="Level 3" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
@@ -218,5 +220,9 @@ position = Vector2(827, 583)
 
 [node name="Bee" parent="." instance=ExtResource("8_pqqva")]
 position = Vector2(527, 456)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+position = Vector2(527, 456)
+navigation_polygon = SubResource("NavigationPolygon_fsbwc")
 
 [connection signal="body_entered" from="To_4" to="To_4" method="_on_body_entered"]
