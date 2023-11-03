@@ -10,7 +10,7 @@ func ready():
 func _on_above_body_entered(body):
 	SM.set_state("Dying")
 	$Boar.animation = "Dying"
-	
+	Global.add_points()
 
 
 func _on_body_body_entered(body):

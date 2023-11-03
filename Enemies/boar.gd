@@ -4,7 +4,9 @@ extends CharacterBody2D
 
 @export var walking = 500
 @export var running = 1000
-@export var path = [Vector2(4100,1120), Vector2(5250,1120)]
+@export var path = [Vector2(86, -45), Vector2(96,-45)]
+#^this is the problem, find position on the screen
+#can add starting points to make a diff path each level
 var direction = 1
 
 func _ready():

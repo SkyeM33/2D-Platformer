@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bpsm68c8y4hm4"]
+[gd_scene load_steps=29 format=3 uid="uid://bpsm68c8y4hm4"]
 
 [ext_resource type="Texture2D" uid="uid://byf05812xlkbd" path="res://Assets/Level 2.png" id="1_i3g7d"]
 [ext_resource type="Texture2D" uid="uid://61jskxmah413" path="res://Assets/Platformer sprite sheet fixed.png" id="2_85rf7"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Levels/Exit.gd" id="5_sntru"]
 [ext_resource type="PackedScene" uid="uid://3ekipwe3voqp" path="res://Enemies/boar_3.tscn" id="8_63yyj"]
 [ext_resource type="PackedScene" uid="uid://chg52dofx8plp" path="res://Enemies/bee.tscn" id="8_eai8l"]
+[ext_resource type="Script" path="res://UI/Menu.gd" id="9_07245"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x27d8"]
 texture = ExtResource("2_85rf7")
@@ -178,11 +179,11 @@ size = Vector2(11, 657)
 size = Vector2(22.5, 660)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_lnh5b"]
-vertices = PackedVector2Array(976, 449, 898, 446, 526, 374, 524, 299, 295, 376, 298, 449, 223, 444, 12, -4, 1156, -9, 1154, 522, 1048, 513, 901, 524, 825, 524, 748, 447, 524, 602, 387, 611, 380, 451, 523, 519, 670, 446, 671, 520, 448, 376, 1049, 597, 981, 600, 9, 437, 751, 524, 371, 373, 448, 302)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 10, 0), PackedInt32Array(1, 11, 12, 13), PackedInt32Array(14, 15, 16, 17), PackedInt32Array(2, 18, 19, 17, 16, 20), PackedInt32Array(21, 22, 0, 10), PackedInt32Array(7, 8, 0, 3), PackedInt32Array(6, 23, 7), PackedInt32Array(12, 24, 13), PackedInt32Array(2, 1, 13, 18), PackedInt32Array(20, 16, 25, 26), PackedInt32Array(7, 3, 26), PackedInt32Array(4, 7, 26, 25)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(12, -4, 9, 437, 223, 444, 298, 449, 295, 376, 371, 373, 380, 451, 387, 611, 524, 602, 523, 519, 671, 520, 670, 446, 748, 447, 751, 524, 825, 524, 901, 524, 898, 446, 976, 449, 981, 600, 1049, 597, 1048, 513, 1154, 522, 1156, -9), PackedVector2Array(448, 302, 524, 299, 526, 374, 448, 376)])
+vertices = PackedVector2Array(976, 449, 898, 446, 526, 374, 524, 299, 295, 376, 298, 449, 281, 448, 264, 445, 221, 67, 1156, -9, 1154, 522, 901, 524, 825, 524, 748, 447, 524, 602, 387, 611, 380, 451, 523, 519, 670, 446, 671, 520, 448, 376, 1049, 597, 981, 600, 1048, 513, 751, 524, 371, 373, 448, 302)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7, 8), PackedInt32Array(8, 9, 10, 0), PackedInt32Array(1, 11, 12, 13), PackedInt32Array(14, 15, 16, 17), PackedInt32Array(2, 18, 19, 17, 16, 20), PackedInt32Array(21, 22, 0, 23), PackedInt32Array(12, 24, 13), PackedInt32Array(2, 1, 13, 18), PackedInt32Array(20, 16, 25, 26), PackedInt32Array(25, 4, 8, 26), PackedInt32Array(3, 26, 8), PackedInt32Array(10, 23, 0), PackedInt32Array(8, 0, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(221, 67, 264, 445, 281, 448, 298, 449, 295, 376, 371, 373, 380, 451, 387, 611, 524, 602, 523, 519, 671, 520, 670, 446, 748, 447, 751, 524, 825, 524, 901, 524, 898, 446, 976, 449, 981, 600, 1049, 597, 1048, 513, 1154, 522, 1156, -9), PackedVector2Array(448, 302, 524, 299, 526, 374, 448, 376)])
 
-[node name="Level 2" type="Node2D"]
+[node name="Game" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(580, 319)
@@ -244,4 +245,62 @@ position = Vector2(684, 207)
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_lnh5b")
 
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Menu" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("9_07245")
+
+[node name="ColorRect" type="ColorRect" parent="UI/Menu"]
+layout_mode = 0
+offset_right = 1163.0
+offset_bottom = 672.0
+color = Color(0.607843, 0.258824, 0, 0.745098)
+
+[node name="Label" type="Label" parent="UI/Menu"]
+layout_mode = 0
+offset_left = 456.0
+offset_top = 134.0
+offset_right = 691.0
+offset_bottom = 192.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Pause Menu"
+
+[node name="Continue" type="Button" parent="UI/Menu"]
+layout_mode = 0
+offset_left = 462.0
+offset_top = 277.0
+offset_right = 662.0
+offset_bottom = 327.0
+theme_override_font_sizes/font_size = 30
+text = "Continue"
+
+[node name="Quit" type="Button" parent="UI/Menu"]
+layout_mode = 0
+offset_left = 459.0
+offset_top = 341.0
+offset_right = 659.0
+offset_bottom = 391.0
+theme_override_font_sizes/font_size = 30
+text = "Quit"
+
+[node name="HUD" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Points" type="Label" parent="UI/HUD"]
+layout_mode = 0
+offset_right = 71.0
+offset_bottom = 26.0
+theme_override_font_sizes/font_size = 20
+text = "Points: 0"
+
 [connection signal="body_entered" from="To_3" to="To_3" method="_on_body_entered"]
+[connection signal="pressed" from="UI/Menu/Continue" to="UI/Menu" method="_on_continue_pressed"]
+[connection signal="pressed" from="UI/Menu/Quit" to="UI/Menu" method="_on_quit_pressed"]

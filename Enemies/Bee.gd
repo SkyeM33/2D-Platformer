@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var player = null
 @onready var ray = $See
-@export var speed = 800
+@export var speed = 100
 @export var looking_speed = 100
 var nav_ready = false
 var initial_position = Vector2.ZERO
@@ -61,6 +61,7 @@ func _on_above_and_below_body_entered(body):
 		$Attack.collision_layer = 0
 		$Attack.collision_mask = 0
 		SM.set_state("Die")
+		Global.add_points()
 		
 
 		

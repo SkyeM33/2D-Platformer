@@ -136,7 +136,7 @@ position = Vector2(-1, 2)
 polygon = PackedVector2Array(41, -46.3, 41, -44.8, 49, -36.8, 49, -34.7, 50, -33.4, 50, 37, 41.9, 46, 39.6, 46, 33.6, 50, -34.5, 50, -43, 44, -43, 41.6, -49, 32.6, -49, 28, -50, 22.1, -50, -14.2, -47.6, -25, -46.4, -25, -42.4, -35, -40.9, -35, -31.9, -46, -29.6, -46, -23.6, -50, -18.2, -50, 32.7, -50)
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(-245, -53)
+position = Vector2(-70, -58)
 script = ExtResource("1_n4m8p")
 metadata/_edit_group_ = true
 
@@ -159,6 +159,7 @@ position = Vector2(-4, 0)
 navigation_polygon = SubResource("NavigationPolygon_2weyh")
 
 [node name="Boar2" parent="." instance=ExtResource("7_ifm8i")]
+visible = false
 position = Vector2(130, -44)
 
 [node name="TextEdit" type="TextEdit" parent="."]
@@ -226,6 +227,19 @@ offset_right = 659.0
 offset_bottom = 391.0
 theme_override_font_sizes/font_size = 30
 text = "Quit"
+
+[node name="HUD" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Points" type="Label" parent="UI/HUD"]
+layout_mode = 0
+offset_right = 71.0
+offset_bottom = 26.0
+theme_override_font_sizes/font_size = 20
+text = "Points: 0"
 
 [connection signal="body_entered" from="To_2" to="To_2" method="_on_body_entered"]
 [connection signal="pressed" from="UI/Menu/Continue" to="UI/Menu" method="_on_continue_pressed"]

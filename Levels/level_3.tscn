@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://d3xyqieu8q8q8"]
+[gd_scene load_steps=27 format=3 uid="uid://d3xyqieu8q8q8"]
 
 [ext_resource type="Texture2D" uid="uid://bdp422a2vuw2h" path="res://Assets/Level 3.png" id="1_rahe8"]
 [ext_resource type="Texture2D" uid="uid://61jskxmah413" path="res://Assets/Platformer sprite sheet fixed.png" id="2_mutp3"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c84op8a5loqpy" path="res://Assets/player.png" id="4_otuv5"]
 [ext_resource type="PackedScene" uid="uid://3ekipwe3voqp" path="res://Enemies/boar_3.tscn" id="7_1ykrn"]
 [ext_resource type="PackedScene" uid="uid://chg52dofx8plp" path="res://Enemies/bee.tscn" id="8_pqqva"]
+[ext_resource type="Script" path="res://UI/Menu.gd" id="9_8ah8c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yjr3q"]
 texture = ExtResource("2_mutp3")
@@ -172,8 +173,11 @@ animations = [{
 size = Vector2(22, 50)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_fsbwc"]
+vertices = PackedVector2Array(-80, 139, -369, 137, -247, -341, -80, 62, 635, -452, 72, -14, 647, 140, 229, 137, 232, 64, 156, 62, 158, -9, 72, 62, 1, 62)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 2, 4, 5), PackedInt32Array(6, 7, 8, 4), PackedInt32Array(8, 9, 10, 4), PackedInt32Array(5, 11, 12), PackedInt32Array(5, 12, 3), PackedInt32Array(5, 4, 10)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-247, -341, -369, 137, -80, 139, -80, 62, 1, 62, 72, 62, 72, -14, 158, -9, 156, 62, 232, 64, 229, 137, 647, 140, 635, -452)])
 
-[node name="Level 3" type="Node2D"]
+[node name="Game" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(580, 330)
@@ -225,4 +229,62 @@ position = Vector2(527, 456)
 position = Vector2(527, 456)
 navigation_polygon = SubResource("NavigationPolygon_fsbwc")
 
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Menu" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("9_8ah8c")
+
+[node name="ColorRect" type="ColorRect" parent="UI/Menu"]
+layout_mode = 0
+offset_right = 1163.0
+offset_bottom = 672.0
+color = Color(0.607843, 0.258824, 0, 0.745098)
+
+[node name="Label" type="Label" parent="UI/Menu"]
+layout_mode = 0
+offset_left = 456.0
+offset_top = 134.0
+offset_right = 691.0
+offset_bottom = 192.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Pause Menu"
+
+[node name="Continue" type="Button" parent="UI/Menu"]
+layout_mode = 0
+offset_left = 462.0
+offset_top = 277.0
+offset_right = 662.0
+offset_bottom = 327.0
+theme_override_font_sizes/font_size = 30
+text = "Continue"
+
+[node name="Quit" type="Button" parent="UI/Menu"]
+layout_mode = 0
+offset_left = 459.0
+offset_top = 341.0
+offset_right = 659.0
+offset_bottom = 391.0
+theme_override_font_sizes/font_size = 30
+text = "Quit"
+
+[node name="HUD" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Points" type="Label" parent="UI/HUD"]
+layout_mode = 0
+offset_right = 71.0
+offset_bottom = 26.0
+theme_override_font_sizes/font_size = 20
+text = "Points: 0"
+
 [connection signal="body_entered" from="To_4" to="To_4" method="_on_body_entered"]
+[connection signal="pressed" from="UI/Menu/Continue" to="UI/Menu" method="_on_continue_pressed"]
+[connection signal="pressed" from="UI/Menu/Quit" to="UI/Menu" method="_on_quit_pressed"]
