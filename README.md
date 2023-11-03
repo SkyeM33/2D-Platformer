@@ -17,7 +17,7 @@ Enemy sprite sheets from Legacy Fantasy game assets by Anokolisa: https://anokol
 
 ## Future Development
 
-To be turned into a more complete 2D platformer. More levels to be added/completed. Enemies to be fixed so they can move.
+More levels to be added/completed. Enemies to be fixed so they can move properly. Small juicy features to be added.
 
 ## Created by
 
