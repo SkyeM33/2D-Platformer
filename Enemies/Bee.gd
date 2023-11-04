@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var player = null
 @onready var ray = $See
-@export var speed = 100
+@export var speed = 50
 @export var looking_speed = 100
 var nav_ready = false
 var initial_position = Vector2.ZERO

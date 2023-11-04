@@ -236,7 +236,7 @@ shape = SubResource("RectangleShape2D_44uv7")
 
 [node name="Enemy Container" type="Node2D" parent="."]
 
-[node name="Boar 3" parent="Enemy Container" instance=ExtResource("8_63yyj")]
+[node name="L2Boar" parent="Enemy Container" instance=ExtResource("8_63yyj")]
 position = Vector2(654, 508)
 
 [node name="Bee" parent="Enemy Container" instance=ExtResource("8_eai8l")]

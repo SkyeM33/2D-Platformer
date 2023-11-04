@@ -153,20 +153,18 @@ animations = [{
 size = Vector2(39, 27)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1elkh"]
-size = Vector2(39, 2)
+size = Vector2(37, 3)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_irql3"]
 size = Vector2(41, 26)
 
-[node name="Boar 3" type="CharacterBody2D"]
+[node name="Boar_3" type="CharacterBody2D"]
 script = ExtResource("1_c2dt8")
 
 [node name="Boar" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_s2w3y")
-animation = &"Dying"
-autoplay = "Idle"
-frame = 3
-frame_progress = 1.0
+animation = &"Moving"
+autoplay = "Moving"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 2.5)
@@ -175,7 +173,7 @@ shape = SubResource("RectangleShape2D_5fqe0")
 [node name="Above" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Above"]
-position = Vector2(-0.5, -13)
+position = Vector2(-0.5, -13.5)
 shape = SubResource("RectangleShape2D_1elkh")
 
 [node name="Body" type="Area2D" parent="."]
