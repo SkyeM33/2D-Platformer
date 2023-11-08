@@ -42,6 +42,8 @@ func _on_body_body_entered(body):
 		body.die()
 		$Boar.animation = "Attacking"
 		SM.set_state("Attack")
+		var boar_sound = get_node_or_null("/root/Game/BoarSound")
+		boar_sound.play()
 		
 func move():
 	var tween = create_tween()

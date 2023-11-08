@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bpsm68c8y4hm4"]
+[gd_scene load_steps=31 format=3 uid="uid://bpsm68c8y4hm4"]
 
 [ext_resource type="Texture2D" uid="uid://byf05812xlkbd" path="res://Assets/Level 2.png" id="1_i3g7d"]
 [ext_resource type="Texture2D" uid="uid://61jskxmah413" path="res://Assets/Platformer sprite sheet fixed.png" id="2_85rf7"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://3ekipwe3voqp" path="res://Enemies/boar_3.tscn" id="8_63yyj"]
 [ext_resource type="PackedScene" uid="uid://chg52dofx8plp" path="res://Enemies/bee.tscn" id="8_eai8l"]
 [ext_resource type="Script" path="res://UI/Menu.gd" id="9_07245"]
+[ext_resource type="AudioStream" uid="uid://btxwk58tnsmb4" path="res://Assets/Bee.wav" id="10_53c88"]
+[ext_resource type="AudioStream" uid="uid://d2gw3awy04hkr" path="res://Assets/Boar.wav" id="11_ydupu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x27d8"]
 texture = ExtResource("2_85rf7")
@@ -248,6 +250,7 @@ navigation_polygon = SubResource("NavigationPolygon_lnh5b")
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Menu" type="Control" parent="UI"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -300,6 +303,12 @@ offset_right = 71.0
 offset_bottom = 26.0
 theme_override_font_sizes/font_size = 20
 text = "Points: 0"
+
+[node name="BeeSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_53c88")
+
+[node name="BoarSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_ydupu")
 
 [connection signal="body_entered" from="To_3" to="To_3" method="_on_body_entered"]
 [connection signal="pressed" from="UI/Menu/Continue" to="UI/Menu" method="_on_continue_pressed"]

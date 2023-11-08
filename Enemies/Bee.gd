@@ -52,6 +52,8 @@ func _on_attack_body_entered(body):
 		body.die()
 		$AnimatedSprite2D.play("Attacking")
 		$AnimatedSprite2D.play("Idle")
+		var bee_sound = get_node_or_null("/root/Game/BeeSound")
+		bee_sound.play()
 
 
 func _on_above_and_below_body_entered(body):

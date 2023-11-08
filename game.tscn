@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bk831h4vcrj7u"]
+[gd_scene load_steps=25 format=3 uid="uid://bk831h4vcrj7u"]
 
 [ext_resource type="Script" path="res://Levels/Exit.gd" id="1_1olyh"]
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_n4m8p"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://chg52dofx8plp" path="res://Enemies/bee.tscn" id="6_xry56"]
 [ext_resource type="PackedScene" uid="uid://c8i0oxf0vk8tg" path="res://Enemies/boar_2.tscn" id="7_ifm8i"]
 [ext_resource type="Script" path="res://UI/Menu.gd" id="8_7ak35"]
+[ext_resource type="AudioStream" uid="uid://d2gw3awy04hkr" path="res://Assets/Boar.wav" id="9_t88oh"]
+[ext_resource type="AudioStream" uid="uid://btxwk58tnsmb4" path="res://Assets/Bee.wav" id="10_27qg8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aluuq"]
 size = Vector2(1152, 50)
@@ -240,6 +242,12 @@ offset_right = 71.0
 offset_bottom = 26.0
 theme_override_font_sizes/font_size = 20
 text = "Points: 0"
+
+[node name="BoarSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_t88oh")
+
+[node name="BeeSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_27qg8")
 
 [connection signal="body_entered" from="To_2" to="To_2" method="_on_body_entered"]
 [connection signal="pressed" from="UI/Menu/Continue" to="UI/Menu" method="_on_continue_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ds0jdbnrh6dj1"]
+[gd_scene load_steps=24 format=3 uid="uid://ds0jdbnrh6dj1"]
 
 [ext_resource type="Script" path="res://Levels/Exit.gd" id="1_moo27"]
 [ext_resource type="Texture2D" uid="uid://dynokr4l41ncb" path="res://Assets/Portal.png" id="1_ta73c"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://61jskxmah413" path="res://Assets/Platformer sprite sheet fixed.png" id="4_rhker"]
 [ext_resource type="PackedScene" uid="uid://chg52dofx8plp" path="res://Enemies/bee.tscn" id="5_vpwxy"]
 [ext_resource type="Script" path="res://UI/Menu.gd" id="7_4bsh8"]
+[ext_resource type="AudioStream" uid="uid://btxwk58tnsmb4" path="res://Assets/Bee.wav" id="8_428nd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_olvke"]
 atlas = ExtResource("3_a8tl5")
@@ -155,7 +156,7 @@ vertices = PackedVector2Array(821, 523, 461, 527, 606, 451, 674, 448, 760, 448, 
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5), PackedInt32Array(6, 7, 8, 5, 4, 9), PackedInt32Array(10, 11, 12, 13, 14), PackedInt32Array(15, 3, 2, 16), PackedInt32Array(6, 17, 18, 7), PackedInt32Array(19, 6, 9, 15, 16), PackedInt32Array(19, 16, 20, 21), PackedInt32Array(22, 23, 24, 0), PackedInt32Array(1, 0, 24, 10), PackedInt32Array(13, 25, 21, 26), PackedInt32Array(8, 27, 28, 5), PackedInt32Array(29, 2, 1), PackedInt32Array(29, 1, 30, 20), PackedInt32Array(21, 20, 30, 26), PackedInt32Array(13, 26, 14), PackedInt32Array(10, 14, 1)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(71, 522, 73, 157, 383, 2, 1152, 0, 1199, 599, 1127, 601, 1128, 522, 1046, 526, 1047, 597, 902, 597, 901, 515, 821, 523, 825, 670, 751, 672, 751, 595, 668, 601, 674, 670, 225, 602, 228, 520), PackedVector2Array(295, 446, 299, 527, 461, 527, 451, 444), PackedVector2Array(519, 372, 523, 454, 606, 451, 603, 370), PackedVector2Array(666, 375, 674, 448, 760, 448, 756, 367)])
 
-[node name="Level 4" type="Node2D"]
+[node name="Game" type="Node2D"]
 
 [node name="To_5" type="Area2D" parent="."]
 position = Vector2(1167, 503)
@@ -206,6 +207,7 @@ position = Vector2(873, 412)
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Menu" type="Control" parent="UI"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -261,6 +263,9 @@ text = "Points: 0"
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_6u4cb")
+
+[node name="BeeSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_428nd")
 
 [connection signal="body_entered" from="To_5" to="To_5" method="_on_body_entered"]
 [connection signal="pressed" from="UI/Menu/Continue" to="UI/Menu" method="_on_continue_pressed"]

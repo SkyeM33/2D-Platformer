@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://d3xyqieu8q8q8"]
+[gd_scene load_steps=29 format=3 uid="uid://d3xyqieu8q8q8"]
 
 [ext_resource type="Texture2D" uid="uid://bdp422a2vuw2h" path="res://Assets/Level 3.png" id="1_rahe8"]
 [ext_resource type="Texture2D" uid="uid://61jskxmah413" path="res://Assets/Platformer sprite sheet fixed.png" id="2_mutp3"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://3ekipwe3voqp" path="res://Enemies/boar_3.tscn" id="7_1ykrn"]
 [ext_resource type="PackedScene" uid="uid://chg52dofx8plp" path="res://Enemies/bee.tscn" id="8_pqqva"]
 [ext_resource type="Script" path="res://UI/Menu.gd" id="9_8ah8c"]
+[ext_resource type="AudioStream" uid="uid://d2gw3awy04hkr" path="res://Assets/Boar.wav" id="10_y5l2w"]
+[ext_resource type="AudioStream" uid="uid://btxwk58tnsmb4" path="res://Assets/Bee.wav" id="11_qni2t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yjr3q"]
 texture = ExtResource("2_mutp3")
@@ -286,6 +288,12 @@ offset_right = 71.0
 offset_bottom = 26.0
 theme_override_font_sizes/font_size = 20
 text = "Points: 0"
+
+[node name="BoarSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_y5l2w")
+
+[node name="BeeSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_qni2t")
 
 [connection signal="body_entered" from="To_4" to="To_4" method="_on_body_entered"]
 [connection signal="pressed" from="UI/Menu/Continue" to="UI/Menu" method="_on_continue_pressed"]
