@@ -182,8 +182,8 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-247, -341, -369, 137, 
 [node name="Game" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(580, 330)
-scale = Vector2(0.551429, 0.436)
+position = Vector2(532.5, 329)
+scale = Vector2(0.86619, 0.789333)
 texture = ExtResource("1_rahe8")
 
 [node name="Platform" type="TileMap" parent="."]
@@ -220,6 +220,9 @@ animation = &"Walk"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(2, 4)
 shape = SubResource("RectangleShape2D_e532q")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(1.5, 1.5)
 
 [node name="L3Boar" parent="." instance=ExtResource("7_1ykrn")]
 position = Vector2(880, 585)
