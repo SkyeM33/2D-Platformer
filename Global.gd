@@ -5,7 +5,8 @@ var death_zone = 1000
 var points = 0
 
 func _ready():
-	get_tree().change_scene_to_file("res://UI/main_menu.tscn")
+	#get_tree().change_scene_to_file("res://UI/main_menu.tscn")
+	pass
 
 func add_points():
 	points += 1

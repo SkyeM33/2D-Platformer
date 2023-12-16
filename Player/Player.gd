@@ -22,7 +22,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		$Sprite.play("Jump")
 		velocity.y = JUMP_VELOCITY
-
+		
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("Left", "Right")
@@ -39,6 +39,12 @@ func _physics_process(delta):
 	if position.y >= 650:
 		position.y = -55
 		position.x = 1
+	
+	if Input.is_action_just_pressed("Dash") and $Sprite.flip_h == false:
+		var tween = create_tween()
+		tween.tween_property(self, "position", Vector2(position.x + 100, position.y), 0.1)
+		
+		
 		
 
 	move_and_slide()
@@ -47,3 +53,7 @@ func die():
 	position.y = -55
 	position.x = 1
 		
+
+
+func _on_area_2d_input_event(viewport, event, shape_idx):
+	pass # Replace with function body.
